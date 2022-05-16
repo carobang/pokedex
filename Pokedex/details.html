@@ -1,0 +1,24 @@
+<ons-page id="details">
+  <ons-toolbar>
+    <div class="left"><ons-back-button>Back</ons-back-button></div>
+    <div class="center" id="name"></div>
+    <div class="right"></div>
+  </ons-toolbar>
+
+  <ons-card id="card" class="loading">
+    <ons-progress-circular
+      indeterminate
+      id="loading-indicator"
+    ></ons-progress-circular>
+    <img id="img" />
+    <div id="title"></div>
+    <div id="actions" class="hidden">
+      <ons-button id="spot-pokemon" style="margin-bottom:2%;">Spot Pokemon!</ons-button>
+      <ons-button id="add-to-favorite" style="margin-bottom:2%;">Add To Favorite!</ons-button>
+    </div>
+    <div class="content">
+      <ons-list id="types-list"> </ons-list>
+      <ons-list id="stats-list"> </ons-list>
+    </div>
+  </ons-card>
+</ons-page>

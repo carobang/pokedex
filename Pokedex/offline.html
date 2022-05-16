@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Team Rocket's Pokedex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F9AC19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icon.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icon.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="src/app.css" />
+    <link rel="stylesheet" href="src/onsen-css-components.css" />
+    <link rel="stylesheet" href="src/onsen-css-components.min.css" />
+    <link rel="stylesheet" href="src/theme.css" />
+  </head>
+
+  <body style="background-color: #f9ac19">
+    <div class="container">
+      <img
+        id="titleImg"
+        style="width: 100%; object-fit: contain"
+        src="assets/images/title.png"
+      />
+      <h1 class="offline" id="index-p-label">Your Pokedex is offline!</h1>
+      <p id="index-p-button">
+        <ons-button
+          onclick="onRefresh()"
+          styel="background-color:#3C3C3C"
+          id="refreshBtn"
+          >Refresh</ons-button
+        >
+      </p>
+    </div>
+  </body>
+
+  <script>
+    function onRefresh() {
+      window.location.replace("/");
+    }
+  </script>
+
+  <script src="src/app.js"></script>
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+
+  <script type="text/javascript">
+    const registerSW = async () => {
+      if ("serviceWorker" in navigator) {
+        try {
+          await navigator.serviceWorker.register(
+            `${window.location.href}service-worker.js`
+          );
+          console.log("Service Worker Registered");
+        } catch (e) {
+          console.error("Error registering Service Worker...", e);
+        }
+      }
+    };
+    registerSW();
+  </script>
+</html>
